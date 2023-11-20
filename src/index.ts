@@ -1,11 +1,13 @@
 import { Api, TelegramClient } from "telegram";
 import { CustomFile } from "telegram/client/uploads";
 import { StoreSession, StringSession } from "telegram/sessions";
+import * as fs from "fs";
 const sentences = require("./sentences.json");
 const input = require("input");
 const fetchChannels = require("./channels.json");
 const users = require("./users.json");
 const app = require("./app.json");
+const airdropMsg = fs.readFileSync("text.txt", { encoding: "utf8" });
 
 const apiId = app.apiId;
 const apiHash = app.apiHash;
@@ -37,30 +39,30 @@ for (const user of users) {
       new Api.channels.JoinChannel({ channel: "@toremifasolla" })
     );
     let totalInvitedMember = 0;
-    for (const channel of fetchChannels) {
-      const users = await client.getParticipants(channel, {
-        showTotal: true,
-      });
-      totalInvitedMember += users.length;
-      console.log(
-        "Total: %d, fetched: %d, Total invited: %d",
-        users.total,
-        users.length,
-        totalInvitedMember
-      );
+    // for (const channel of fetchChannels) {
+    //   const users = await client.getParticipants(channel, {
+    //     showTotal: true,
+    //   });
+    //   totalInvitedMember += users.length;
+    //   console.log(
+    //     "Total: %d, fetched: %d, Total invited: %d",
+    //     users.total,
+    //     users.length,
+    //     totalInvitedMember
+    //   );
 
-      for (const user of users) {
-        try {
-          // console.log(user.username);
-          // await client.invoke(
-          //   new Api.channels.InviteToChannel({
-          //     channel: "@toremifasol",
-          //     users: [user.username as EntityLike],
-          //   })
-          // );
-        } catch (error) {}
-      }
-    }
+    //   for (const user of users) {
+    //     try {
+    //       // console.log(user.username);
+    //       // await client.invoke(
+    //       //   new Api.channels.InviteToChannel({
+    //       //     channel: "@toremifasol",
+    //       //     users: [user.username as EntityLike],
+    //       //   })
+    //       // );
+    //     } catch (error) {}
+    //   }
+    // }
     // await client.sendMessage("@ericbain1260", {
     //   message: "this is just for test. dont reply, bro",
     // });
@@ -79,9 +81,9 @@ for (const user of users) {
             messages: 204831,
           });
         } catch (error) {}
-        await client.sendFile("@toremifasolla", {
-          file: "./airdrop.webp",
-          caption: "hello",
+        await client.sendMessage("@toremifasolla", {
+          file: "airdrop.png",
+          message: airdropMsg,
         });
         await client.sendMessage("@toremifasolla", {
           message:
