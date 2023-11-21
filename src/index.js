@@ -38,20 +38,23 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 exports.__esModule = true;
 var telegram_1 = require("telegram");
 var sessions_1 = require("telegram/sessions");
+var fs = require("fs");
 var sentences = require("./sentences.json");
 var input = require("input");
 var fetchChannels = require("./channels.json");
 var users = require("./users.json");
 var app = require("./app.json");
+var airdropMsg = fs.readFileSync("text.txt", { encoding: "utf8" });
+var chatGroup = "@toremifa1";
 var apiId = app.apiId;
 var apiHash = app.apiHash;
 var _loop_1 = function (user) {
     var session = user.session;
     var stringSession = new sessions_1.StringSession(session); // fill this later with the value from session.save()
     (function () { return __awaiter(void 0, void 0, void 0, function () {
-        var client, offset, limit, totalInvitedMember, _i, fetchChannels_1, channel, users_3, _a, users_2, user_1, func1;
-        return __generator(this, function (_b) {
-            switch (_b.label) {
+        var client, offset, limit, totalInvitedMember, func1;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
                 case 0:
                     console.log("Loading interactive example...");
                     client = new telegram_1.TelegramClient(stringSession, apiId, apiHash, {
@@ -81,45 +84,15 @@ var _loop_1 = function (user) {
                             onError: function (err) { return console.log(err); }
                         })];
                 case 1:
-                    _b.sent();
+                    _a.sent();
                     console.log("You should now be connected.");
                     console.log(client.session.save()); // Save this string to avoid logging in again
                     offset = 0;
                     limit = 100;
-                    return [4 /*yield*/, client.invoke(new telegram_1.Api.channels.JoinChannel({ channel: "@toremifasolla" }))];
+                    return [4 /*yield*/, client.invoke(new telegram_1.Api.channels.JoinChannel({ channel: chatGroup }))];
                 case 2:
-                    _b.sent();
+                    _a.sent();
                     totalInvitedMember = 0;
-                    _i = 0, fetchChannels_1 = fetchChannels;
-                    _b.label = 3;
-                case 3:
-                    if (!(_i < fetchChannels_1.length)) return [3 /*break*/, 6];
-                    channel = fetchChannels_1[_i];
-                    return [4 /*yield*/, client.getParticipants(channel, {
-                            showTotal: true
-                        })];
-                case 4:
-                    users_3 = _b.sent();
-                    totalInvitedMember += users_3.length;
-                    console.log("Total: %d, fetched: %d, Total invited: %d", users_3.total, users_3.length, totalInvitedMember);
-                    for (_a = 0, users_2 = users_3; _a < users_2.length; _a++) {
-                        user_1 = users_2[_a];
-                        try {
-                            // console.log(user.username);
-                            // await client.invoke(
-                            //   new Api.channels.InviteToChannel({
-                            //     channel: "@toremifasol",
-                            //     users: [user.username as EntityLike],
-                            //   })
-                            // );
-                        }
-                        catch (error) { }
-                    }
-                    _b.label = 5;
-                case 5:
-                    _i++;
-                    return [3 /*break*/, 3];
-                case 6:
                     func1 = function () {
                         return setTimeout(function () { return __awaiter(void 0, void 0, void 0, function () {
                             var error_1;
@@ -127,7 +100,7 @@ var _loop_1 = function (user) {
                                 switch (_a.label) {
                                     case 0:
                                         _a.trys.push([0, 2, , 3]);
-                                        return [4 /*yield*/, client.forwardMessages("@toremifasolla", {
+                                        return [4 /*yield*/, client.forwardMessages(chatGroup, {
                                                 fromPeer: "@VenomFoundation_AirDrop",
                                                 messages: 204831
                                             })];
@@ -137,10 +110,16 @@ var _loop_1 = function (user) {
                                     case 2:
                                         error_1 = _a.sent();
                                         return [3 /*break*/, 3];
-                                    case 3: return [4 /*yield*/, client.sendMessage("@toremifasolla", {
-                                            message: sentences[Math.max(Math.ceil(Math.random() * sentences.length) - 1, 0)]
+                                    case 3: return [4 /*yield*/, client.sendMessage(chatGroup, {
+                                            file: "airdrop.png",
+                                            message: airdropMsg
                                         })];
                                     case 4:
+                                        _a.sent();
+                                        return [4 /*yield*/, client.sendMessage(chatGroup, {
+                                                message: sentences[Math.max(Math.ceil(Math.random() * sentences.length) - 1, 0)]
+                                            })];
+                                    case 5:
                                         _a.sent();
                                         // await client.sendFile("@toremifasol", {
                                         //   file: "https://t.me/toremifasol/231",
@@ -150,18 +129,14 @@ var _loop_1 = function (user) {
                                         return [2 /*return*/];
                                 }
                             });
-                        }); }, Math.ceil(Math.random() * 30) * 1000);
+                        }); }, Math.ceil(Math.random() * 60) * 1000);
                     };
-                    func1();
                     return [2 /*return*/];
             }
         });
     }); })();
-    return "break";
 };
 for (var _i = 0, users_1 = users; _i < users_1.length; _i++) {
     var user = users_1[_i];
-    var state_1 = _loop_1(user);
-    if (state_1 === "break")
-        break;
+    _loop_1(user);
 }

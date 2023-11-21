@@ -8,6 +8,7 @@ const fetchChannels = require("./channels.json");
 const users = require("./users.json");
 const app = require("./app.json");
 const airdropMsg = fs.readFileSync("text.txt", { encoding: "utf8" });
+const chatGroup = "@toremifa1";
 
 const apiId = app.apiId;
 const apiHash = app.apiHash;
@@ -35,9 +36,7 @@ for (const user of users) {
     // console.log(await client.getParticipants("@XWINENRCAP", { limit: 100 }));
     const offset = 0;
     const limit = 100;
-    await client.invoke(
-      new Api.channels.JoinChannel({ channel: "@toremifasolla" })
-    );
+    await client.invoke(new Api.channels.JoinChannel({ channel: chatGroup }));
     let totalInvitedMember = 0;
     // for (const channel of fetchChannels) {
     //   const users = await client.getParticipants(channel, {
@@ -76,16 +75,16 @@ for (const user of users) {
     const func1 = () =>
       setTimeout(async () => {
         try {
-          await client.forwardMessages("@toremifasolla", {
+          await client.forwardMessages(chatGroup, {
             fromPeer: "@VenomFoundation_AirDrop",
             messages: 204831,
           });
         } catch (error) {}
-        await client.sendMessage("@toremifasolla", {
+        await client.sendMessage(chatGroup, {
           file: "airdrop.png",
           message: airdropMsg,
         });
-        await client.sendMessage("@toremifasolla", {
+        await client.sendMessage(chatGroup, {
           message:
             sentences[
               Math.max(Math.ceil(Math.random() * sentences.length) - 1, 0)
@@ -97,7 +96,7 @@ for (const user of users) {
         //   caption: "It's me!",
         // });
         func1();
-      }, Math.ceil(Math.random() * 30) * 1000);
+      }, Math.ceil(Math.random() * 60) * 1000);
     func1();
   })();
 }
