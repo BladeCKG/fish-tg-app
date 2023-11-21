@@ -15,26 +15,6 @@ const apiId = app.apiId;
 const apiHash = app.apiHash;
 
 (async () => {
-  const session = bot.session;
-  const stringSession = new StringSession(session); // fill this later with the value from session.save()
-  const client = new TelegramClient(stringSession, apiId, apiHash, {
-    connectionRetries: 5,
-  });
-  await client.start({
-    botAuthToken: bot.token,
-    onError: (err) => console.log(err),
-  });
-  console.log("Bot should now be connected.");
-  console.log(client.session.save()); // Save this string to avoid logging in again
-  setInterval(async () => {
-    await client.sendMessage(chatGroup, {
-      file: "airdrop.png",
-      message: airdropMsg,
-    });
-  }, 5 * 60 * 1000);
-})();
-
-(async () => {
   for (const user of users) {
     const session = user.session;
     const stringSession = new StringSession(session); // fill this later with the value from session.save()
