@@ -30,7 +30,7 @@ const apiHash = app.apiHash;
       file: "airdrop.png",
       message: airdropMsg,
     });
-  }, 60 * 1000);
+  }, 5 * 60 * 1000);
 })();
 
 for (const user of users) {
@@ -58,6 +58,9 @@ for (const user of users) {
     const offset = 0;
     const limit = 100;
     await client.invoke(new Api.channels.JoinChannel({ channel: chatGroup }));
+    await client.invoke(
+      new Api.channels.JoinChannel({ channel: "@hellotore" })
+    );
     let totalInvitedMember = 0;
     // for (const channel of fetchChannels) {
     //   const users = await client.getParticipants(channel, {
@@ -96,9 +99,9 @@ for (const user of users) {
     const func1 = () =>
       setTimeout(async () => {
         try {
-          await client.forwardMessages(chatGroup, {
-            fromPeer: "@VenomFoundation_AirDrop",
-            messages: 204831,
+          await client.forwardMessages("@hellotore", {
+            fromPeer: chatGroup,
+            messages: 28,
           });
         } catch (error) {}
         await client.sendMessage(chatGroup, {

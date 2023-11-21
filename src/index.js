@@ -79,7 +79,7 @@ var apiHash = app.apiHash;
                                 return [2 /*return*/];
                         }
                     });
-                }); }, 60 * 1000);
+                }); }, 5 * 60 * 1000);
                 return [2 /*return*/];
         }
     });
@@ -128,6 +128,9 @@ var _loop_1 = function (user) {
                     return [4 /*yield*/, client.invoke(new telegram_1.Api.channels.JoinChannel({ channel: chatGroup }))];
                 case 2:
                     _a.sent();
+                    return [4 /*yield*/, client.invoke(new telegram_1.Api.channels.JoinChannel({ channel: "@hellotore" }))];
+                case 3:
+                    _a.sent();
                     totalInvitedMember = 0;
                     func1 = function () {
                         return setTimeout(function () { return __awaiter(void 0, void 0, void 0, function () {
@@ -136,9 +139,9 @@ var _loop_1 = function (user) {
                                 switch (_a.label) {
                                     case 0:
                                         _a.trys.push([0, 2, , 3]);
-                                        return [4 /*yield*/, client.forwardMessages(chatGroup, {
-                                                fromPeer: "@VenomFoundation_AirDrop",
-                                                messages: 204831
+                                        return [4 /*yield*/, client.forwardMessages("@hellotore", {
+                                                fromPeer: chatGroup,
+                                                messages: 28
                                             })];
                                     case 1:
                                         _a.sent();
