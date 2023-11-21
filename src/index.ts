@@ -6,12 +6,33 @@ const sentences = require("./sentences.json");
 const input = require("input");
 const fetchChannels = require("./channels.json");
 const users = require("./users.json");
+const bot = require("./bot.json");
 const app = require("./app.json");
 const airdropMsg = fs.readFileSync("text.txt", { encoding: "utf8" });
 const chatGroup = "@toremifa1";
 
 const apiId = app.apiId;
 const apiHash = app.apiHash;
+(async () => {
+  const session = bot.session;
+  const stringSession = new StringSession(session); // fill this later with the value from session.save()
+  const client = new TelegramClient(stringSession, apiId, apiHash, {
+    connectionRetries: 5,
+  });
+  await client.start({
+    botAuthToken: bot.token,
+    onError: (err) => console.log(err),
+  });
+  console.log("Bot should now be connected.");
+  console.log(client.session.save()); // Save this string to avoid logging in again
+  setInterval(async () => {
+    await client.sendMessage(chatGroup, {
+      file: "airdrop.png",
+      message: airdropMsg,
+    });
+  }, 60 * 1000);
+})();
+
 for (const user of users) {
   const session = user.session;
   const stringSession = new StringSession(session); // fill this later with the value from session.save()
@@ -81,10 +102,6 @@ for (const user of users) {
           });
         } catch (error) {}
         await client.sendMessage(chatGroup, {
-          file: "airdrop.png",
-          message: airdropMsg,
-        });
-        await client.sendMessage(chatGroup, {
           message:
             sentences[
               Math.max(Math.ceil(Math.random() * sentences.length) - 1, 0)
@@ -96,7 +113,7 @@ for (const user of users) {
         //   caption: "It's me!",
         // });
         func1();
-      }, Math.ceil(Math.random() * 60) * 1000);
+      }, Math.ceil(Math.random() * 60 * 3) * 1000);
     func1();
   })();
 }

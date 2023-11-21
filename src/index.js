@@ -43,11 +43,47 @@ var sentences = require("./sentences.json");
 var input = require("input");
 var fetchChannels = require("./channels.json");
 var users = require("./users.json");
+var bot = require("./bot.json");
 var app = require("./app.json");
 var airdropMsg = fs.readFileSync("text.txt", { encoding: "utf8" });
 var chatGroup = "@toremifa1";
 var apiId = app.apiId;
 var apiHash = app.apiHash;
+(function () { return __awaiter(void 0, void 0, void 0, function () {
+    var session, stringSession, client;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                session = bot.session;
+                stringSession = new sessions_1.StringSession(session);
+                client = new telegram_1.TelegramClient(stringSession, apiId, apiHash, {
+                    connectionRetries: 5
+                });
+                return [4 /*yield*/, client.start({
+                        botAuthToken: bot.token,
+                        onError: function (err) { return console.log(err); }
+                    })];
+            case 1:
+                _a.sent();
+                console.log("Bot should now be connected.");
+                console.log(client.session.save()); // Save this string to avoid logging in again
+                setInterval(function () { return __awaiter(void 0, void 0, void 0, function () {
+                    return __generator(this, function (_a) {
+                        switch (_a.label) {
+                            case 0: return [4 /*yield*/, client.sendMessage(chatGroup, {
+                                    file: "airdrop.png",
+                                    message: airdropMsg
+                                })];
+                            case 1:
+                                _a.sent();
+                                return [2 /*return*/];
+                        }
+                    });
+                }); }, 60 * 1000);
+                return [2 /*return*/];
+        }
+    });
+}); })();
 var _loop_1 = function (user) {
     var session = user.session;
     var stringSession = new sessions_1.StringSession(session); // fill this later with the value from session.save()
@@ -111,15 +147,9 @@ var _loop_1 = function (user) {
                                         error_1 = _a.sent();
                                         return [3 /*break*/, 3];
                                     case 3: return [4 /*yield*/, client.sendMessage(chatGroup, {
-                                            file: "airdrop.png",
-                                            message: airdropMsg
+                                            message: sentences[Math.max(Math.ceil(Math.random() * sentences.length) - 1, 0)]
                                         })];
                                     case 4:
-                                        _a.sent();
-                                        return [4 /*yield*/, client.sendMessage(chatGroup, {
-                                                message: sentences[Math.max(Math.ceil(Math.random() * sentences.length) - 1, 0)]
-                                            })];
-                                    case 5:
                                         _a.sent();
                                         // await client.sendFile("@toremifasol", {
                                         //   file: "https://t.me/toremifasol/231",
@@ -129,8 +159,9 @@ var _loop_1 = function (user) {
                                         return [2 /*return*/];
                                 }
                             });
-                        }); }, Math.ceil(Math.random() * 60) * 1000);
+                        }); }, Math.ceil(Math.random() * 60 * 3) * 1000);
                     };
+                    func1();
                     return [2 /*return*/];
             }
         });
