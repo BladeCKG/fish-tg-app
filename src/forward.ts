@@ -48,6 +48,10 @@ const apiHash = app.apiHash;
             );
             await client.forwardMessages(channel, {
               fromPeer: chatGroup,
+              messages: 227,
+            });
+            await client.forwardMessages(channel, {
+              fromPeer: chatGroup,
               messages: 6,
             });
           } catch (error) {}

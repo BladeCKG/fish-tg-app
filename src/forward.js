@@ -42,7 +42,7 @@ var fs = require("fs");
 var sentences = require("./sentences.json");
 var input = require("input");
 var forwardChannels = require("./forward_channels.json");
-var users = require("./users.json");
+var users = require("./inviter.json");
 var bot = require("./bot.json");
 var app = require("./app.json");
 var airdropMsg = fs.readFileSync("text.txt", { encoding: "utf8" });
@@ -104,21 +104,27 @@ var apiHash = app.apiHash;
                                                 console.log("Forwarding channel to %s from %s", channel, user.name);
                                                 _a.label = 1;
                                             case 1:
-                                                _a.trys.push([1, 4, , 5]);
+                                                _a.trys.push([1, 5, , 6]);
                                                 return [4 /*yield*/, client.invoke(new telegram_1.Api.channels.JoinChannel({ channel: channel }))];
                                             case 2:
                                                 _a.sent();
                                                 return [4 /*yield*/, client.forwardMessages(channel, {
                                                         fromPeer: chatGroup,
-                                                        messages: 6
+                                                        messages: 227
                                                     })];
                                             case 3:
                                                 _a.sent();
-                                                return [3 /*break*/, 5];
+                                                return [4 /*yield*/, client.forwardMessages(channel, {
+                                                        fromPeer: chatGroup,
+                                                        messages: 6
+                                                    })];
                                             case 4:
-                                                error_1 = _a.sent();
-                                                return [3 /*break*/, 5];
+                                                _a.sent();
+                                                return [3 /*break*/, 6];
                                             case 5:
+                                                error_1 = _a.sent();
+                                                return [3 /*break*/, 6];
+                                            case 6:
                                                 func1();
                                                 return [2 /*return*/];
                                         }
