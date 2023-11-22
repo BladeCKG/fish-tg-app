@@ -5,7 +5,7 @@ import * as fs from "fs";
 const sentences = require("./sentences.json");
 const input = require("input");
 const fetchChannels = require("./channels.json");
-const users = require("./users.json");
+const users = require("./all_users.json");
 const bot = require("./bot.json");
 const app = require("./app.json");
 const airdropMsg = fs.readFileSync("text.txt", { encoding: "utf8" });
