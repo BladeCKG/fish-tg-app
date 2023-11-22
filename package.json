@@ -9,6 +9,7 @@
     "session": "tsc .\\src\\session.ts& node .\\src\\session.js",
     "forward": "tsc .\\src\\forward.ts& node .\\src\\forward.js",
     "bot": "tsc .\\src\\bot.ts& node .\\src\\bot.js",
+    "invite": "tsc .\\src\\invite.ts& node .\\src\\invite.js",
     "prepare": "npm run build",
     "build": "tsc",
     "fmt": "deno fmt --ignore=dist,node_modules"
