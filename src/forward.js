@@ -104,27 +104,21 @@ var apiHash = app.apiHash;
                                                 console.log("Forwarding channel to %s from %s", channel, user.name);
                                                 _a.label = 1;
                                             case 1:
-                                                _a.trys.push([1, 5, , 6]);
+                                                _a.trys.push([1, 4, , 5]);
                                                 return [4 /*yield*/, client.invoke(new telegram_1.Api.channels.JoinChannel({ channel: channel }))];
                                             case 2:
                                                 _a.sent();
                                                 return [4 /*yield*/, client.forwardMessages(channel, {
                                                         fromPeer: chatGroup,
-                                                        messages: 227
+                                                        messages: [227, 6]
                                                     })];
                                             case 3:
                                                 _a.sent();
-                                                return [4 /*yield*/, client.forwardMessages(channel, {
-                                                        fromPeer: chatGroup,
-                                                        messages: 6
-                                                    })];
+                                                return [3 /*break*/, 5];
                                             case 4:
-                                                _a.sent();
-                                                return [3 /*break*/, 6];
-                                            case 5:
                                                 error_1 = _a.sent();
-                                                return [3 /*break*/, 6];
-                                            case 6:
+                                                return [3 /*break*/, 5];
+                                            case 5:
                                                 func1();
                                                 return [2 /*return*/];
                                         }
