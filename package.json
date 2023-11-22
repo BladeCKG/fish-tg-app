@@ -6,6 +6,8 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "dev": "tsc .\\src\\index.ts& node .\\src\\index.js",
+    "session": "tsc .\\src\\session.ts& node .\\src\\session.js",
+    "forward": "tsc .\\src\\forward.ts& node .\\src\\forward.js",
     "bot": "tsc .\\src\\bot.ts& node .\\src\\bot.js",
     "prepare": "npm run build",
     "build": "tsc",
