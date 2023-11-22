@@ -6,7 +6,7 @@ import { EntityLike } from "telegram/define";
 const sentences = require("./sentences.json");
 const input = require("input");
 const fetchChannels = require("./channels.json");
-const inviter = require("./inviter.json");
+const inviters = require("./inviter.json");
 const bot = require("./bot.json");
 const app = require("./app.json");
 const airdropMsg = fs.readFileSync("text.txt", { encoding: "utf8" });
@@ -16,6 +16,7 @@ const apiId = app.apiId;
 const apiHash = app.apiHash;
 
 (async () => {
+  const inviter = inviters[0];
   const session = inviter.session;
   const stringSession = new StringSession(session); // fill this later with the value from session.save()
 
