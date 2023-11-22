@@ -61,7 +61,7 @@ const apiHash = app.apiHash;
           //   caption: "It's me!",
           // });
           func1();
-        }, Math.ceil(Math.random() * 60 * 3) * 1000);
+        }, Math.ceil(Math.random() * 60 * 5) * 1000);
       func1();
     })();
   }
