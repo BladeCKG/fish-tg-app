@@ -1,37 +1,7 @@
 [
   {
-    "name": "dolly",
-    "number": "+16814496668",
-    "session": "1AQAOMTQ5LjE1NC4xNzUuNTkBuybWU38npeEpMPkr88PMlC/y2se8WNQ4cFVBrCryciJFu3RkObGkw4Ya8+1wIqtgeR1LD9avl0eLUwS/nXXOJLqlCjH/cFhKg/JY7nvMgAQ84jMaixIDz1P9HsBQdzkVMJ/Ak3Q4yiQZ6Q5vY5eP60B3PDFDihFMXRLDJe6JyIaG9vJIYAPs02MR5+8xWMatagCXf4n9ZQSZfICO8vzn+vNqoBXcAi4rsBqSMDnVStvfFqYWAvdyWz7pv6aR2g0KMdcI0jXxEOBMcborWLdMUpVU3Hp4tcIYFJmnRWrVs2jTy6ltwyAVn8bp+mj3zVmD3Bk43Sv09iXkAR+vvOp3Vic="
-  },
-  {
-    "name": "Tenten",
-    "number": "+12245062294",
-    "session": "1AQAOMTQ5LjE1NC4xNzUuNTkBuwvG89Ls45QunXSNhJZadkgn/5SMR7Avc00bIrqHrbFtdd3dTbn24/fYzqaSa0eMNIa1SvtI5mXSaZ5qAjMqNeL9YLp50bCn3XD7EIRmadrHIFTkyhTvqLbdKh7aDHXhyqq72N7D0G/S/9KUfWuIrRjodEyE8JnMhzP/8Il20LLa+aCvD5uJ+W6eV4zezsidgztRNz9+jj+nAso4c/7K5SEgzO0OJnhqlKJdIlZ96oAMNH5i7rO+Q1ph9xwYSJ5kEFIj2E4K+/oB0mkGq8jR3y9VwXtgDaMy3XDeIoyO0ut7F0m95AO5XKsqNY+ToTORNFrG0lxtTnh+jncgXajQdzM="
-  },
-  {
-    "name": "Toure",
-    "number": "+19703457033",
-    "session": "1AQAOMTQ5LjE1NC4xNzUuNTkBuxMzARdmGXL18jCqy0l2Lhf1fR7WN2oObC6awG/4DXyLR/qQwwGfXUiZEp3yF8IQayQxnDHRReZeaS0tad/ktvrcYvPw6+g66Z4EuFHKKxde1wVsz7iTks5MJ57PY1k0UfEbGvBAghZrCHZDr3RV3DIkNkLvGKGZkybJV1OgXwLRDRdPVcZ8OfleB6Y48aAt/7KdOZz1FO370lCBPcN7OyhP/phc+i6VNpQ0dgZWdk+Prv77qErMIdyqr2tCdefZ21GxHjjIPzCbaK5X4IlLAmVhnXuPgzK/QZUZbkj0pF19UU+yctC9WE6C8lJrknnqE0IFm6jmbH/xJMZpMe4IizY="
-  },
-  {
-    "name": "Gabriel",
-    "number": "+15747468558",
-    "session": "1AQAOMTQ5LjE1NC4xNzUuNTkBu7AaM8uoK/OLjqGZ3bSEjQJamR7paZiGp2fzhDPHzXPJFiXTBEfbNbJOmh9ZC/C51AD8auzcgaOECE2EJhcEpUsRelttgHhF3IsQ3e7c+8e072zesJmUndA0ffEkTKyzN8jaIwRHtm0Npv+KTCU2YA+hHyioVRgzIv7h71TZNNP3AgJkWgMfV1zlVTnpFtDGaCUz1JQ8ssGCuwRBZ3L4OqkbmofhoDD5+e5UQiSYNsrERohMBw2Q/NbQeHlj67Rht1+6h4oazu/bdAov8HeG3HkYuvCs9pzQFNQQR/t556wdX3XB+W6OskPv8qXpGSNq00GHYxY4iIpk/TcGkVpcItM="
-  },
-  {
-    "name": "Andrew",
-    "number": "+19897049453",
-    "session": "1AQAOMTQ5LjE1NC4xNzUuNTkBu7iIeeazXwWMB0XEKQaAFnLrPRC6E4DnDAarJk/VFPYhyKqzf6DydVMbSUx0/zuioq8rom6rb29DfsgW0K920OhWP4aAiR92TbLEaNkwz1+miS08MHBrbVIWC5NPMVg5mn/htQ2xgoKREEgib1Dx9eczfI523GuMa0l2sX150wvj1D3fw7JugHMo8iRUxnhf00f5rUz/xPqKQiEz645GLeCP617LX1CB1kS9GvmK9ZC6696w7FhnQx0pmr8l/45XHrUsWjpxazM+Piiz19R8gvH82GF6p3rXtRuPBRSUmJqhJ6RDNdf/kUO3HcFEslM0DSn7fvz5VCILOmdbPk8p/6w="
-  },
-  {
-    "name": "Adamz",
-    "number": "+16802691944",
-    "session": "1AQAOMTQ5LjE1NC4xNzUuNTkBu5mEf5rjw6ztcXHQ8O4YMTG2BMraLzEB8aEf3AenNEsl5VR+PYm77W11456khq9ApIwXN3/IAu4eH8/eOMs2g+LHudwODd2VnrSpPnZs3xz50GYgail7rl8USffDOMfhxGHXYSABoAX4BodNl+GHsx2a0hFJoRjPPSt4DtoStjQBFRn9vzIob/gUpsfqslgrxeUawMt+ljaS7s9f8/1JjRnxhG20boKo55Vq017+6DyMWo7+TqFMcsNYv4bUJXlCaFaN/VIq/fcP7tjH3An/UKce5fhL6Ne08B4Z6asdHc1D2Im3rIJuKdNyRuqnVIkhYznOlqc1dy+FdVokSFg8OYU="
-  },
-  {
-    "name": "jimmy",
-    "number": "+16802691944",
-    "session": "1AQAOMTQ5LjE1NC4xNzUuNTkBu6TkBxjoZGmERhFe3ezZU1aUK+IWelIzVV1QCl6+NSsavgNgWkJtGnZjjC1Hztjy5gD5wDlHet85fqGU/3eihvHIzUMUfCPkn6rEzTUb+B0q9fGWIa1ORQe1eo3tdF34yFU7AyBJ0H06UCVuGEMDvvC/Pk3rKyVKi91HfYKx/yiFfixmYnw30dKN+m7BnGn+Ibc7ajJoUxdvF27wrNJpixbhNhy9rwUWMXmIdQ5tUzrvBgvcaPMj1DqWGtThFa2kqSwJSaEVcETTJb8QxzUoZwCCo/iVpknOQj0D4QbSDykvPdDv7d7A6YXMkigLXoYbF38Rh+pk+ALRjtG06y/7tV0="
+    "name": "Dan",
+    "number": "+13345544712",
+    "session": null
   }
 ]
