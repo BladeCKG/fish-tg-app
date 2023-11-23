@@ -48,11 +48,11 @@ var app = require("./app.json");
 var channelAdmins = require("./channel_admin.json");
 var airdropMsg = fs.readFileSync("text.txt", { encoding: "utf8" });
 var chatGroup = "@mufexfi";
-var fromChannel = "@mufexannouncement";
+var fromChannels = ["@WatcherGuru", "@mufexannouncement"];
 var apiId = app.apiId;
 var apiHash = app.apiHash;
 (function () { return __awaiter(void 0, void 0, void 0, function () {
-    var channelAdmin, session, stringSession, client, lastMsg, msgs, func1;
+    var channelAdmin, session, stringSession, client, _loop_1, _i, fromChannels_1, fromChannel;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
@@ -90,59 +90,73 @@ var apiHash = app.apiHash;
                 _a.sent();
                 console.log("You should now be connected.");
                 console.log(client.session.save()); // Save this string to avoid logging in again
-                return [4 /*yield*/, client.invoke(new telegram_1.Api.channels.JoinChannel({ channel: fromChannel }))];
-            case 2:
-                _a.sent();
-                return [4 /*yield*/, client.getMessages(fromChannel, { limit: 1 })];
-            case 3:
-                msgs = _a.sent();
-                lastMsg = msgs[0];
-                return [4 /*yield*/, client.sendMessage(chatGroup, {
-                        message: msgs[0].message,
-                        file: msgs[0].photo
-                    })];
-            case 4:
-                _a.sent();
-                try {
-                }
-                catch (error) { }
-                func1 = function () {
-                    return setTimeout(function () { return __awaiter(void 0, void 0, void 0, function () {
-                        var msgs, error_1;
+                _loop_1 = function (fromChannel) {
+                    (function () { return __awaiter(void 0, void 0, void 0, function () {
+                        var lastMsg, msgs, func1;
                         return __generator(this, function (_a) {
                             switch (_a.label) {
-                                case 0: return [4 /*yield*/, client.getMessages(fromChannel, { limit: 1 })];
+                                case 0: return [4 /*yield*/, client.invoke(new telegram_1.Api.channels.JoinChannel({ channel: fromChannel }))];
                                 case 1:
-                                    msgs = _a.sent();
-                                    if (msgs[0].id == (lastMsg === null || lastMsg === void 0 ? void 0 : lastMsg.id)) {
-                                        return [2 /*return*/];
-                                    }
-                                    _a.label = 2;
+                                    _a.sent();
+                                    return [4 /*yield*/, client.getMessages(fromChannel, { limit: 1 })];
                                 case 2:
-                                    _a.trys.push([2, 4, , 5]);
+                                    msgs = _a.sent();
+                                    lastMsg = msgs[0];
                                     return [4 /*yield*/, client.sendMessage(chatGroup, {
                                             message: msgs[0].message,
                                             file: msgs[0].photo
                                         })];
                                 case 3:
                                     _a.sent();
-                                    lastMsg = msgs[0];
-                                    return [3 /*break*/, 5];
-                                case 4:
-                                    error_1 = _a.sent();
-                                    return [3 /*break*/, 5];
-                                case 5:
-                                    // await client.sendFile("@toremifasol", {
-                                    //   file: "https://t.me/toremifasol/231",
-                                    //   caption: "It's me!",
-                                    // });
+                                    try {
+                                    }
+                                    catch (error) { }
+                                    func1 = function () {
+                                        return setTimeout(function () { return __awaiter(void 0, void 0, void 0, function () {
+                                            var msgs, error_1;
+                                            return __generator(this, function (_a) {
+                                                switch (_a.label) {
+                                                    case 0: return [4 /*yield*/, client.getMessages(fromChannel, { limit: 1 })];
+                                                    case 1:
+                                                        msgs = _a.sent();
+                                                        if (msgs[0].id == (lastMsg === null || lastMsg === void 0 ? void 0 : lastMsg.id)) {
+                                                            return [2 /*return*/];
+                                                        }
+                                                        _a.label = 2;
+                                                    case 2:
+                                                        _a.trys.push([2, 4, , 5]);
+                                                        return [4 /*yield*/, client.sendMessage(chatGroup, {
+                                                                message: msgs[0].message,
+                                                                file: msgs[0].photo
+                                                            })];
+                                                    case 3:
+                                                        _a.sent();
+                                                        lastMsg = msgs[0];
+                                                        return [3 /*break*/, 5];
+                                                    case 4:
+                                                        error_1 = _a.sent();
+                                                        return [3 /*break*/, 5];
+                                                    case 5:
+                                                        // await client.sendFile("@toremifasol", {
+                                                        //   file: "https://t.me/toremifasol/231",
+                                                        //   caption: "It's me!",
+                                                        // });
+                                                        func1();
+                                                        return [2 /*return*/];
+                                                }
+                                            });
+                                        }); }, 10 * 60 * 1000);
+                                    };
                                     func1();
                                     return [2 /*return*/];
                             }
                         });
-                    }); }, 60 * 1000);
+                    }); })();
                 };
-                func1();
+                for (_i = 0, fromChannels_1 = fromChannels; _i < fromChannels_1.length; _i++) {
+                    fromChannel = fromChannels_1[_i];
+                    _loop_1(fromChannel);
+                }
                 return [2 /*return*/];
         }
     });

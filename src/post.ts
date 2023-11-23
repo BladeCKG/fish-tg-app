@@ -11,7 +11,7 @@ const app = require("./app.json");
 const channelAdmins = require("./channel_admin.json");
 const airdropMsg = fs.readFileSync("text.txt", { encoding: "utf8" });
 const chatGroup = "@mufexfi";
-const fromChannel = "@mufexannouncement";
+const fromChannels = ["@WatcherGuru", "@mufexannouncement"];
 
 const apiId = app.apiId;
 const apiHash = app.apiHash;
@@ -37,36 +37,42 @@ const apiHash = app.apiHash;
   console.log("You should now be connected.");
   console.log(client.session.save()); // Save this string to avoid logging in again
 
-  await client.invoke(new Api.channels.JoinChannel({ channel: fromChannel }));
-  let lastMsg: Api.Message;
-  const msgs = await client.getMessages(fromChannel, { limit: 1 });
-  lastMsg = msgs[0];
-
-  await client.sendMessage(chatGroup, {
-    message: msgs[0].message,
-    file: msgs[0].photo,
-  });
-  try {
-  } catch (error) {}
-  const func1 = () =>
-    setTimeout(async () => {
+  for (const fromChannel of fromChannels) {
+    (async () => {
+      await client.invoke(
+        new Api.channels.JoinChannel({ channel: fromChannel })
+      );
+      let lastMsg: Api.Message;
       const msgs = await client.getMessages(fromChannel, { limit: 1 });
-      if (msgs[0].id == lastMsg?.id) {
-        return;
-      }
-      try {
-        await client.sendMessage(chatGroup, {
-          message: msgs[0].message,
-          file: msgs[0].photo,
-        });
-        lastMsg = msgs[0];
-      } catch (error) {}
+      lastMsg = msgs[0];
 
-      // await client.sendFile("@toremifasol", {
-      //   file: "https://t.me/toremifasol/231",
-      //   caption: "It's me!",
-      // });
+      await client.sendMessage(chatGroup, {
+        message: msgs[0].message,
+        file: msgs[0].photo,
+      });
+      try {
+      } catch (error) {}
+      const func1 = () =>
+        setTimeout(async () => {
+          const msgs = await client.getMessages(fromChannel, { limit: 1 });
+          if (msgs[0].id == lastMsg?.id) {
+            return;
+          }
+          try {
+            await client.sendMessage(chatGroup, {
+              message: msgs[0].message,
+              file: msgs[0].photo,
+            });
+            lastMsg = msgs[0];
+          } catch (error) {}
+
+          // await client.sendFile("@toremifasol", {
+          //   file: "https://t.me/toremifasol/231",
+          //   caption: "It's me!",
+          // });
+          func1();
+        }, 10 * 60 * 1000);
       func1();
-    }, 60 * 1000);
-  func1();
+    })();
+  }
 })();
