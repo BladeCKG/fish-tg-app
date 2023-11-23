@@ -19,7 +19,7 @@ const apiHash = app.apiHash;
     const session = user.session;
     const stringSession = new StringSession(session); // fill this later with the value from session.save()
 
-    (async () => {
+    await (async () => {
       console.log("Connecting user: %s", user.name);
       const client = new TelegramClient(stringSession, apiId, apiHash, {
         connectionRetries: 5,
@@ -61,7 +61,7 @@ const apiHash = app.apiHash;
           //   caption: "It's me!",
           // });
           func1();
-        }, Math.ceil(Math.random() * 60 * 3) * 1000);
+        }, Math.ceil(Math.random() * 60 * 5) * 1000);
       func1();
     })();
   }

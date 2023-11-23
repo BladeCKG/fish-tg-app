@@ -52,92 +52,112 @@ var apiHash = app.apiHash;
 (function () { return __awaiter(void 0, void 0, void 0, function () {
     var _loop_1, _i, users_1, user;
     return __generator(this, function (_a) {
-        _loop_1 = function (user) {
-            var session = user.session;
-            var stringSession = new sessions_1.StringSession(session); // fill this later with the value from session.save()
-            (function () { return __awaiter(void 0, void 0, void 0, function () {
-                var client, offset, limit, func1;
-                return __generator(this, function (_a) {
-                    switch (_a.label) {
-                        case 0:
-                            console.log("Connecting user: %s", user.name);
-                            client = new telegram_1.TelegramClient(stringSession, apiId, apiHash, {
-                                connectionRetries: 5
-                            });
-                            return [4 /*yield*/, client.start({
-                                    phoneNumber: 
-                                    // (user.phone as string) ||
-                                    function () { return __awaiter(void 0, void 0, void 0, function () { return __generator(this, function (_a) {
-                                        switch (_a.label) {
-                                            case 0: return [4 /*yield*/, input.text("Please enter your number: ")];
-                                            case 1: return [2 /*return*/, _a.sent()];
-                                        }
-                                    }); }); },
-                                    password: function () { return __awaiter(void 0, void 0, void 0, function () { return __generator(this, function (_a) {
-                                        switch (_a.label) {
-                                            case 0: return [4 /*yield*/, input.text("Please enter your password: ")];
-                                            case 1: return [2 /*return*/, _a.sent()];
-                                        }
-                                    }); }); },
-                                    phoneCode: function () { return __awaiter(void 0, void 0, void 0, function () { return __generator(this, function (_a) {
-                                        switch (_a.label) {
-                                            case 0: return [4 /*yield*/, input.text("Please enter the code you received: ")];
-                                            case 1: return [2 /*return*/, _a.sent()];
-                                        }
-                                    }); }); },
-                                    onError: function (err) { return console.log(err); }
-                                })];
-                        case 1:
-                            _a.sent();
-                            console.log("You should now be connected.");
-                            console.log(client.session.save()); // Save this string to avoid logging in again
-                            offset = 0;
-                            limit = 100;
-                            return [4 /*yield*/, client.invoke(new telegram_1.Api.channels.JoinChannel({ channel: chatGroup }))];
-                        case 2:
-                            _a.sent();
-                            func1 = function () {
-                                return setTimeout(function () { return __awaiter(void 0, void 0, void 0, function () {
-                                    return __generator(this, function (_a) {
-                                        switch (_a.label) {
-                                            case 0: 
-                                            // try {
-                                            //   await client.forwardMessages("@hellotore", {
-                                            //     fromPeer: chatGroup,
-                                            //     messages: 28,
-                                            //   });
-                                            // } catch (error) {}
-                                            return [4 /*yield*/, client.sendMessage(chatGroup, {
-                                                    message: sentences[Math.max(Math.ceil(Math.random() * sentences.length) - 1, 0)]
-                                                })];
-                                            case 1:
-                                                // try {
-                                                //   await client.forwardMessages("@hellotore", {
-                                                //     fromPeer: chatGroup,
-                                                //     messages: 28,
-                                                //   });
-                                                // } catch (error) {}
-                                                _a.sent();
-                                                // await client.sendFile("@toremifasol", {
-                                                //   file: "https://t.me/toremifasol/231",
-                                                //   caption: "It's me!",
-                                                // });
-                                                func1();
-                                                return [2 /*return*/];
-                                        }
-                                    });
-                                }); }, Math.ceil(Math.random() * 60 * 3) * 1000);
-                            };
-                            func1();
-                            return [2 /*return*/];
-                    }
-                });
-            }); })();
-        };
-        for (_i = 0, users_1 = users; _i < users_1.length; _i++) {
-            user = users_1[_i];
-            _loop_1(user);
+        switch (_a.label) {
+            case 0:
+                _loop_1 = function (user) {
+                    var session, stringSession;
+                    return __generator(this, function (_b) {
+                        switch (_b.label) {
+                            case 0:
+                                session = user.session;
+                                stringSession = new sessions_1.StringSession(session);
+                                return [4 /*yield*/, (function () { return __awaiter(void 0, void 0, void 0, function () {
+                                        var client, offset, limit, func1;
+                                        return __generator(this, function (_a) {
+                                            switch (_a.label) {
+                                                case 0:
+                                                    console.log("Connecting user: %s", user.name);
+                                                    client = new telegram_1.TelegramClient(stringSession, apiId, apiHash, {
+                                                        connectionRetries: 5
+                                                    });
+                                                    return [4 /*yield*/, client.start({
+                                                            phoneNumber: 
+                                                            // (user.phone as string) ||
+                                                            function () { return __awaiter(void 0, void 0, void 0, function () { return __generator(this, function (_a) {
+                                                                switch (_a.label) {
+                                                                    case 0: return [4 /*yield*/, input.text("Please enter your number: ")];
+                                                                    case 1: return [2 /*return*/, _a.sent()];
+                                                                }
+                                                            }); }); },
+                                                            password: function () { return __awaiter(void 0, void 0, void 0, function () { return __generator(this, function (_a) {
+                                                                switch (_a.label) {
+                                                                    case 0: return [4 /*yield*/, input.text("Please enter your password: ")];
+                                                                    case 1: return [2 /*return*/, _a.sent()];
+                                                                }
+                                                            }); }); },
+                                                            phoneCode: function () { return __awaiter(void 0, void 0, void 0, function () { return __generator(this, function (_a) {
+                                                                switch (_a.label) {
+                                                                    case 0: return [4 /*yield*/, input.text("Please enter the code you received: ")];
+                                                                    case 1: return [2 /*return*/, _a.sent()];
+                                                                }
+                                                            }); }); },
+                                                            onError: function (err) { return console.log(err); }
+                                                        })];
+                                                case 1:
+                                                    _a.sent();
+                                                    console.log("You should now be connected.");
+                                                    console.log(client.session.save()); // Save this string to avoid logging in again
+                                                    offset = 0;
+                                                    limit = 100;
+                                                    return [4 /*yield*/, client.invoke(new telegram_1.Api.channels.JoinChannel({ channel: chatGroup }))];
+                                                case 2:
+                                                    _a.sent();
+                                                    func1 = function () {
+                                                        return setTimeout(function () { return __awaiter(void 0, void 0, void 0, function () {
+                                                            return __generator(this, function (_a) {
+                                                                switch (_a.label) {
+                                                                    case 0: 
+                                                                    // try {
+                                                                    //   await client.forwardMessages("@hellotore", {
+                                                                    //     fromPeer: chatGroup,
+                                                                    //     messages: 28,
+                                                                    //   });
+                                                                    // } catch (error) {}
+                                                                    return [4 /*yield*/, client.sendMessage(chatGroup, {
+                                                                            message: sentences[Math.max(Math.ceil(Math.random() * sentences.length) - 1, 0)]
+                                                                        })];
+                                                                    case 1:
+                                                                        // try {
+                                                                        //   await client.forwardMessages("@hellotore", {
+                                                                        //     fromPeer: chatGroup,
+                                                                        //     messages: 28,
+                                                                        //   });
+                                                                        // } catch (error) {}
+                                                                        _a.sent();
+                                                                        // await client.sendFile("@toremifasol", {
+                                                                        //   file: "https://t.me/toremifasol/231",
+                                                                        //   caption: "It's me!",
+                                                                        // });
+                                                                        func1();
+                                                                        return [2 /*return*/];
+                                                                }
+                                                            });
+                                                        }); }, Math.ceil(Math.random() * 60 * 3) * 1000);
+                                                    };
+                                                    func1();
+                                                    return [2 /*return*/];
+                                            }
+                                        });
+                                    }); })()];
+                            case 1:
+                                _b.sent();
+                                return [2 /*return*/];
+                        }
+                    });
+                };
+                _i = 0, users_1 = users;
+                _a.label = 1;
+            case 1:
+                if (!(_i < users_1.length)) return [3 /*break*/, 4];
+                user = users_1[_i];
+                return [5 /*yield**/, _loop_1(user)];
+            case 2:
+                _a.sent();
+                _a.label = 3;
+            case 3:
+                _i++;
+                return [3 /*break*/, 1];
+            case 4: return [2 /*return*/];
         }
-        return [2 /*return*/];
     });
 }); })();
