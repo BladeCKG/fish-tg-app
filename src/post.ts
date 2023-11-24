@@ -10,8 +10,8 @@ const bot = require("./bot.json");
 const app = require("./app.json");
 const channelAdmins = require("./channel_admin.json");
 const airdropMsg = fs.readFileSync("text.txt", { encoding: "utf8" });
-const chatGroup = "@mufexfi";
-const fromChannels = ["@WatcherGuru", "@mufexannouncement"];
+const chatGroup = "@xaisentrynodesannouncement";
+const fromChannels = ["@xaisentrynodesann", "@WatcherGuru"];
 
 const apiId = app.apiId;
 const apiHash = app.apiHash;

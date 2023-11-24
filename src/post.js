@@ -47,8 +47,8 @@ var bot = require("./bot.json");
 var app = require("./app.json");
 var channelAdmins = require("./channel_admin.json");
 var airdropMsg = fs.readFileSync("text.txt", { encoding: "utf8" });
-var chatGroup = "@mufexfi";
-var fromChannels = ["@WatcherGuru", "@mufexannouncement"];
+var chatGroup = "@xaisentrynodesannouncement";
+var fromChannels = ["@xaisentrynodesann"];
 var apiId = app.apiId;
 var apiHash = app.apiHash;
 (function () { return __awaiter(void 0, void 0, void 0, function () {
@@ -92,22 +92,32 @@ var apiHash = app.apiHash;
                 console.log(client.session.save()); // Save this string to avoid logging in again
                 _loop_1 = function (fromChannel) {
                     (function () { return __awaiter(void 0, void 0, void 0, function () {
-                        var lastMsg, msgs, func1;
+                        var lastMsg, msgs, _i, msgs_1, msg, func1;
                         return __generator(this, function (_a) {
                             switch (_a.label) {
                                 case 0: return [4 /*yield*/, client.invoke(new telegram_1.Api.channels.JoinChannel({ channel: fromChannel }))];
                                 case 1:
                                     _a.sent();
-                                    return [4 /*yield*/, client.getMessages(fromChannel, { limit: 1 })];
+                                    return [4 /*yield*/, client.getMessages(fromChannel, { limit: 5 })];
                                 case 2:
                                     msgs = _a.sent();
-                                    lastMsg = msgs[0];
-                                    return [4 /*yield*/, client.sendMessage(chatGroup, {
-                                            message: msgs[0].message,
-                                            file: msgs[0].photo
-                                        })];
+                                    _i = 0, msgs_1 = msgs;
+                                    _a.label = 3;
                                 case 3:
+                                    if (!(_i < msgs_1.length)) return [3 /*break*/, 6];
+                                    msg = msgs_1[_i];
+                                    lastMsg = msg;
+                                    return [4 /*yield*/, client.sendMessage(chatGroup, {
+                                            message: msg.message,
+                                            file: msg.photo
+                                        })];
+                                case 4:
                                     _a.sent();
+                                    _a.label = 5;
+                                case 5:
+                                    _i++;
+                                    return [3 /*break*/, 3];
+                                case 6:
                                     try {
                                     }
                                     catch (error) { }
