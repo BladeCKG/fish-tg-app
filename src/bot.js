@@ -45,8 +45,8 @@ var fetchChannels = require("./channels.json");
 var users = require("./users.json");
 var bot = require("./bot.json");
 var app = require("./app.json");
-var airdropMsg = fs.readFileSync("text.txt", { encoding: "utf8" });
-var chatGroup = "@zksync_airdrop_group_chat";
+var airdropMsg = fs.readFileSync("niza_text.txt", { encoding: "utf8" });
+var chatGroup = "@niza_airdrop_chat";
 var apiId = app.apiId;
 var apiHash = app.apiHash;
 (function () { return __awaiter(void 0, void 0, void 0, function () {
@@ -68,7 +68,7 @@ var apiHash = app.apiHash;
                 console.log("Bot should now be connected.");
                 console.log(client.session.save()); // Save this string to avoid logging in again
                 return [4 /*yield*/, client.sendMessage(chatGroup, {
-                        file: "airdrop.png",
+                        file: "niza_airdrop.jpg",
                         message: airdropMsg
                     })];
             case 2:
@@ -77,7 +77,7 @@ var apiHash = app.apiHash;
                     return __generator(this, function (_a) {
                         switch (_a.label) {
                             case 0: return [4 /*yield*/, client.sendMessage(chatGroup, {
-                                    file: "airdrop.png",
+                                    file: "niza_airdrop.jpg",
                                     message: airdropMsg
                                 })];
                             case 1:

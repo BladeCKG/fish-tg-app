@@ -8,8 +8,7 @@ const fetchChannels = require("./channels.json");
 const users = require("./users.json");
 const bot = require("./bot.json");
 const app = require("./app.json");
-const airdropMsg = fs.readFileSync("text.txt", { encoding: "utf8" });
-const chatGroup = "@zksync_airdrop_group_chat";
+const chatGroup = "@niza_airdrop_chat";
 
 const apiId = app.apiId;
 const apiHash = app.apiHash;
@@ -19,7 +18,7 @@ const apiHash = app.apiHash;
     const session = user.session;
     const stringSession = new StringSession(session); // fill this later with the value from session.save()
 
-    await (async () => {
+    (async () => {
       console.log("Connecting user: %s", user.name);
       const client = new TelegramClient(stringSession, apiId, apiHash, {
         connectionRetries: 5,
