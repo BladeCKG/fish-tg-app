@@ -44,7 +44,7 @@ var fetchChannels = require("./channels.json");
 var users = require("./users.json");
 var bot = require("./bot.json");
 var app = require("./app.json");
-var chatGroup = "@niza_airdrop_chat";
+var chatGroup = "@niza_airdropchat";
 var apiId = app.apiId;
 var apiHash = app.apiHash;
 (function () { return __awaiter(void 0, void 0, void 0, function () {
