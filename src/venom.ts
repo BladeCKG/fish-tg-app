@@ -8,7 +8,7 @@ const fetchChannels = require("./channels.json");
 const user = require("./venom_user.json");
 const bot = require("./bot.json");
 const app = require("./app.json");
-const chatGroup = "@VenomFoundation_AirDrop";
+const chatGroup = "@venom_airdropasldkjf";
 const airdropMsg = fs.readFileSync("venom_text.txt", { encoding: "utf8" });
 
 const apiId = app.apiId;
@@ -18,7 +18,7 @@ const apiHash = app.apiHash;
   const session = user.session;
   const stringSession = new StringSession(session); // fill this later with the value from session.save()
 
-  async () => {
+  await (async () => {
     console.log("Connecting user: %s", user.name);
     const client = new TelegramClient(stringSession, apiId, apiHash, {
       connectionRetries: 5,
@@ -44,7 +44,9 @@ const apiHash = app.apiHash;
       await client.sendMessage(chatGroup, {
         file: "venom_airdrop.jpg",
         message: airdropMsg,
+        linkPreview: false,
+        parseMode: "html",
       });
     }, 4 * 60 * 1000);
-  };
+  })();
 })();
