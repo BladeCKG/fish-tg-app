@@ -8,7 +8,7 @@ const fetchChannels = require("./channels.json");
 const user = require("./venom_user.json");
 const bot = require("./bot.json");
 const app = require("./app.json");
-const chatGroup = "@venom_airdropasldkjf";
+const chatGroup = "@VenomFoundation_AirDrop";
 const airdropMsg = fs.readFileSync("venom_text.txt", { encoding: "utf8" });
 
 const apiId = app.apiId;
