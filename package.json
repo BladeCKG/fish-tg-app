@@ -11,6 +11,7 @@
     "bot": "tsc .\\src\\bot.ts& node .\\src\\bot.js",
     "invite": "tsc .\\src\\invite.ts& node .\\src\\invite.js",
     "post": "tsc .\\src\\post.ts& node .\\src\\post.js",
+    "venom": "tsc .\\src\\venom.ts& node .\\src\\venom.js",
     "prepare": "npm run build",
     "build": "tsc",
     "fmt": "deno fmt --ignore=dist,node_modules"
