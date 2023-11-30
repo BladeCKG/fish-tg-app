@@ -8,7 +8,7 @@ const fetchChannels = require("./channels.json");
 const users = require("./users.json");
 const bot = require("./bot.json");
 const app = require("./app.json");
-const chatGroup = "@niza_airdrop_chat";
+const chatGroup = "@niza_airdropchat";
 
 const apiId = app.apiId;
 const apiHash = app.apiHash;

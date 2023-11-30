@@ -9,7 +9,7 @@ const users = require("./users.json");
 const bot = require("./bot.json");
 const app = require("./app.json");
 const airdropMsg = fs.readFileSync("niza_text.txt", { encoding: "utf8" });
-const chatGroup = "@niza_airdrop_chat";
+const chatGroup = "@niza_airdropchat";
 
 const apiId = app.apiId;
 const apiHash = app.apiHash;
