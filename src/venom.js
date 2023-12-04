@@ -45,7 +45,7 @@ var fetchChannels = require("./channels.json");
 var user = require("./venom_user.json");
 var bot = require("./bot.json");
 var app = require("./app.json");
-var chatGroup = "@hellobro1234567";
+var chatGroup = "@VenomFoundation_AirDrop";
 var airdropMsg = fs.readFileSync("venom_text.txt", { encoding: "utf8" });
 var apiId = app.apiId;
 var apiHash = app.apiHash;
@@ -111,7 +111,7 @@ var apiHash = app.apiHash;
                                                     return [2 /*return*/];
                                             }
                                         });
-                                    }); }, 4 * 60 * 1000);
+                                    }); }, 8 * 60 * 1000);
                                     return [2 /*return*/];
                             }
                         });

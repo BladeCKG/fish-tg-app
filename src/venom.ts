@@ -47,6 +47,6 @@ const apiHash = app.apiHash;
         linkPreview: false,
         parseMode: "html",
       });
-    }, 4 * 60 * 1000);
+    }, 8 * 60 * 1000);
   })();
 })();
