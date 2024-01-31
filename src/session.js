@@ -50,76 +50,53 @@ var chatGroup = "@toremi1";
 var apiId = app.apiId;
 var apiHash = app.apiHash;
 (function () { return __awaiter(void 0, void 0, void 0, function () {
-    var _loop_1, _i, users_1, user;
+    var stringSession;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
-                _loop_1 = function (user) {
-                    var session, stringSession;
-                    return __generator(this, function (_b) {
-                        switch (_b.label) {
-                            case 0:
-                                session = user.session;
-                                stringSession = new sessions_1.StringSession(session);
-                                return [4 /*yield*/, (function () { return __awaiter(void 0, void 0, void 0, function () {
-                                        var client;
-                                        return __generator(this, function (_a) {
-                                            switch (_a.label) {
-                                                case 0:
-                                                    console.log("Connecting user: %s", user.name);
-                                                    client = new telegram_1.TelegramClient(stringSession, apiId, apiHash, {
-                                                        connectionRetries: 5
-                                                    });
-                                                    return [4 /*yield*/, client.start({
-                                                            phoneNumber: 
-                                                            // (user.phone as string) ||
-                                                            function () { return __awaiter(void 0, void 0, void 0, function () { return __generator(this, function (_a) {
-                                                                switch (_a.label) {
-                                                                    case 0: return [4 /*yield*/, input.text("Please enter your number: ")];
-                                                                    case 1: return [2 /*return*/, _a.sent()];
-                                                                }
-                                                            }); }); },
-                                                            password: function () { return __awaiter(void 0, void 0, void 0, function () { return __generator(this, function (_a) {
-                                                                switch (_a.label) {
-                                                                    case 0: return [4 /*yield*/, input.text("Please enter your password: ")];
-                                                                    case 1: return [2 /*return*/, _a.sent()];
-                                                                }
-                                                            }); }); },
-                                                            phoneCode: function () { return __awaiter(void 0, void 0, void 0, function () { return __generator(this, function (_a) {
-                                                                switch (_a.label) {
-                                                                    case 0: return [4 /*yield*/, input.text("Please enter the code you received: ")];
-                                                                    case 1: return [2 /*return*/, _a.sent()];
-                                                                }
-                                                            }); }); },
-                                                            onError: function (err) { return console.log(err); }
-                                                        })];
-                                                case 1:
-                                                    _a.sent();
-                                                    console.log("You should now be connected.");
-                                                    console.log(client.session.save()); // Save this string to avoid logging in again
-                                                    return [2 /*return*/];
-                                            }
-                                        });
-                                    }); })()];
-                            case 1:
-                                _b.sent();
-                                return [2 /*return*/];
-                        }
-                    });
-                };
-                _i = 0, users_1 = users;
-                _a.label = 1;
+                stringSession = new sessions_1.StringSession("");
+                return [4 /*yield*/, (function () { return __awaiter(void 0, void 0, void 0, function () {
+                        var client;
+                        return __generator(this, function (_a) {
+                            switch (_a.label) {
+                                case 0:
+                                    client = new telegram_1.TelegramClient(stringSession, apiId, apiHash, {
+                                        connectionRetries: 5
+                                    });
+                                    return [4 /*yield*/, client.start({
+                                            phoneNumber: 
+                                            // (user.phone as string) ||
+                                            function () { return __awaiter(void 0, void 0, void 0, function () { return __generator(this, function (_a) {
+                                                switch (_a.label) {
+                                                    case 0: return [4 /*yield*/, input.text("Please enter your number: ")];
+                                                    case 1: return [2 /*return*/, _a.sent()];
+                                                }
+                                            }); }); },
+                                            password: function () { return __awaiter(void 0, void 0, void 0, function () { return __generator(this, function (_a) {
+                                                switch (_a.label) {
+                                                    case 0: return [4 /*yield*/, input.text("Please enter your password: ")];
+                                                    case 1: return [2 /*return*/, _a.sent()];
+                                                }
+                                            }); }); },
+                                            phoneCode: function () { return __awaiter(void 0, void 0, void 0, function () { return __generator(this, function (_a) {
+                                                switch (_a.label) {
+                                                    case 0: return [4 /*yield*/, input.text("Please enter the code you received: ")];
+                                                    case 1: return [2 /*return*/, _a.sent()];
+                                                }
+                                            }); }); },
+                                            onError: function (err) { return console.log(err); }
+                                        })];
+                                case 1:
+                                    _a.sent();
+                                    console.log("You should now be connected.");
+                                    console.log(client.session.save()); // Save this string to avoid logging in again
+                                    return [2 /*return*/];
+                            }
+                        });
+                    }); })()];
             case 1:
-                if (!(_i < users_1.length)) return [3 /*break*/, 4];
-                user = users_1[_i];
-                return [5 /*yield**/, _loop_1(user)];
-            case 2:
                 _a.sent();
-                _a.label = 3;
-            case 3:
-                _i++;
-                return [3 /*break*/, 1];
-            case 4: return [2 /*return*/];
+                return [2 /*return*/];
         }
     });
 }); })();

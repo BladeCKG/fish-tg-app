@@ -12,6 +12,8 @@
     "invite": "tsc .\\src\\invite.ts& node .\\src\\invite.js",
     "post": "tsc .\\src\\post.ts& node .\\src\\post.js",
     "venom": "tsc .\\src\\venom.ts& node .\\src\\venom.js",
+    "cronaswap": "tsc .\\src\\cronaswap.ts& node .\\src\\cronaswap.js",
+    "creategroup": "tsc .\\src\\creategroup.ts& node .\\src\\creategroup.js",
     "prepare": "npm run build",
     "build": "tsc",
     "fmt": "deno fmt --ignore=dist,node_modules"
@@ -22,6 +24,7 @@
   "author": "dcdunkan",
   "license": "MIT",
   "dependencies": {
+    "axios": "^1.6.7",
     "chalk": "^4.1.2",
     "fs": "^0.0.1-security",
     "input": "^1.0.1",
